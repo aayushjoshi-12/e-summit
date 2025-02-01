@@ -40,7 +40,7 @@ profiles:
         region: us-east
       pricing:
         web:
-          token: USDT
+          token: CST
           amount: 50
 
 deployment:
@@ -90,7 +90,7 @@ profiles:
         region: us-east
       pricing:
         web:
-          token: USDT
+          token: CST
           amount: 70
 
 deployment:
@@ -140,7 +140,7 @@ profiles:
         region: us-west
       pricing:
         web:
-          token: USDT
+          token: cst
           amount: 100
 
 deployment:
@@ -190,7 +190,7 @@ profiles:
         region: us-central
       pricing:
         api:
-          token: USDT
+          token: CST
           amount: 200
 
 deployment:
@@ -290,7 +290,7 @@ profiles:
         region: us-east
       pricing:
         jupyter:
-          token: USDT
+          token: CST
           amount: 50
 
 deployment:

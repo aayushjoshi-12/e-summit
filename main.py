@@ -26,6 +26,5 @@ def chat(item: Item):
     return {"answer": chain.invoke({"user_input": item.user_input}).content}
 
 
-# user_input = "create a node service with 1gb memory and 0.5 vcpu"
 
-# print(chain.invoke({"user_input": user_input}))
+
