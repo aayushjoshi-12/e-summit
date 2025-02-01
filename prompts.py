@@ -97,9 +97,7 @@ deployment:
   web:
     scalable-region:
       profile: web
-      count:
-        min: 2
-        max: 5
+      count: 2
 ```
 """,
     },
@@ -199,9 +197,7 @@ deployment:
   api:
     performance-region:
       profile: api
-      count:
-        min: 1
-        max: 10
+      count: 5
 ```
 """,
     },
