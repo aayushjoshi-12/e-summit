@@ -34,14 +34,14 @@ profiles:
         storage:
           size: 1Gi
 
-placement:
-  default:
-    attributes:
-      region: us-east
-    pricing:
-      web:
-        token: USDT
-        amount: 50
+  placement:
+    default:
+      attributes:
+        region: us-east
+      pricing:
+        web:
+          token: USDT
+          amount: 50
 
 deployment:
   web:
@@ -84,14 +84,14 @@ profiles:
         storage:
           size: 2Gi
 
-placement:
-  scalable-region:
-    attributes:
-      region: us-east
-    pricing:
-      web:
-        token: USDT
-        amount: 70
+  placement:
+    scalable-region:
+      attributes:
+        region: us-east
+      pricing:
+        web:
+          token: USDT
+          amount: 70
 
 deployment:
   web:
@@ -136,14 +136,14 @@ profiles:
         storage:
           size: 5Gi
 
-placement:
-  storage-optimized:
-    attributes:
-      region: us-west
-    pricing:
-      web:
-        token: USDT
-        amount: 100
+  placement:
+    storage-optimized:
+      attributes:
+        region: us-west
+      pricing:
+        web:
+          token: USDT
+          amount: 100
 
 deployment:
   web:
@@ -186,14 +186,14 @@ profiles:
         storage:
           size: 10Gi
 
-placement:
-  performance-region:
-    attributes:
-      region: us-central
-    pricing:
-      api:
-        token: USDT
-        amount: 200
+  placement:
+    performance-region:
+      attributes:
+        region: us-central
+      pricing:
+        api:
+          token: USDT
+          amount: 200
 
 deployment:
   api:
@@ -238,14 +238,14 @@ profiles:
         storage:
           size: 1Gi
 
-placement:
-  cost-effective:
-    attributes:
-      region: us-east
-    pricing:
-      web:
-        token: USDT
-        amount: 20
+  placement:
+    cost-effective:
+      attributes:
+        region: us-east
+      pricing:
+        web:
+          token: USDT
+          amount: 20
 
 deployment:
   web:
@@ -288,14 +288,14 @@ profiles:
         storage:
           size: 5Gi
 
-placement:
-  default:
-    attributes:
-      region: us-east
-    pricing:
-      jupyter:
-        token: USDT
-        amount: 50
+  placement:
+    default:
+      attributes:
+        region: us-east
+      pricing:
+        jupyter:
+          token: USDT
+          amount: 50
 
 deployment:
   jupyter:
