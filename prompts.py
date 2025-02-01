@@ -4,6 +4,7 @@ examples = [
     {
         "user_input": "I want a Node.js service with 1 GB of memory, exposed on port 3000",
         "output": """
+```yaml
 version: "1.0"
 
 services:
@@ -47,11 +48,13 @@ deployment:
     default:
       profile: web
       count: 1
+```
 """,
     },
     {
         "user_input": "Deploy a Node.js service with auto-scaling, starting with 2 instances and a maximum of 5, using 1.5 GB of memory each",
         "output": """
+```yaml
 version: "1.0"
 
 services:
@@ -97,11 +100,13 @@ deployment:
       count:
         min: 2
         max: 5
+```
 """,
     },
     {
         "user_input": "Create a Node.js app with 2 GB of memory and 5 GB of persistent storage, running on port 8080.",
         "output": """
+```yaml
 version: "1.0"
 
 services:
@@ -145,11 +150,13 @@ deployment:
     storage-optimized:
       profile: web
       count: 1
+```
 """,
     },
     {
         "user_input": "Set up a high-performance Node.js API with 2 vCPUs, 4 GB of memory, and auto-scaling from 1 to 10 instances.",
         "output": """
+```yaml
 version: "1.0"
 
 services:
@@ -195,11 +202,13 @@ deployment:
       count:
         min: 1
         max: 10
+```
 """,
     },
     {
         "user_input": "Deploy a Node.js service with 1 GB of memory, 0.5 vCPU, and a pricing model using USDT at 20 per instance",
         "output": """
+```yaml
 version: "1.0"
 
 services:
@@ -243,11 +252,13 @@ deployment:
     cost-effective:
       profile: web
       count: 1
+```
 """,
     },
     {
         "user_input": "Set up a Jupyter notebook service with 1 GB of memory and 0.5 vCPU",
         "output": """
+```yaml
 version: "1.0"
 
 services:
@@ -291,6 +302,7 @@ deployment:
     default:
       profile: jupyter
       count: 1
+```
 """,
     },
 ]
