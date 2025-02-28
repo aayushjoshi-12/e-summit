@@ -24,7 +24,3 @@ class Item(BaseModel):
 @app.post("/chat")
 def chat(item: Item):
     return {"answer": chain.invoke({"user_input": item.user_input}).content}
-
-
-
-

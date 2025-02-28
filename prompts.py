@@ -21,7 +21,7 @@ services:
 profiles:
   name: node-service
   mode: provider
-  duration: 2min
+  duration: 1h
   tier:
     - community
   compute:
@@ -71,7 +71,7 @@ services:
 profiles:
   name: node-service-auto
   mode: provider
-  duration: 2min
+  duration: 1h
   tier:
     - community
   compute:
@@ -121,7 +121,7 @@ services:
 profiles:
   name: node-app-storage
   mode: provider
-  duration: 2min
+  duration: 1h
   tier:
     - community
   compute:
@@ -171,7 +171,7 @@ services:
 profiles:
   name: high-performance-node
   mode: provider
-  duration: 2min
+  duration: 1h
   tier:
     - professional
   compute:
@@ -221,7 +221,7 @@ services:
 profiles:
   name: cost-optimized-node
   mode: provider
-  duration: 2min
+  duration: 1h
   tier:
     - community
   compute:
@@ -271,7 +271,7 @@ services:
 profiles:
   name: jupyter-notebook
   mode: provider
-  duration: 2min
+  duration: 1h
   tier:
     - community
   compute:
@@ -301,18 +301,78 @@ deployment:
 ```
 """,
     },
+    {
+        "user_input": "Deploy a Jupyter Notebook service with PyTorch 2.4.1 and CUDA on port 8888, using 8 vCPUs, 16 GB RAM, 200 GB storage, and an H100 GPU in the US West region for 2 hours at 10 USDT per instance.",
+        "output": """
+```yaml
+version: "1.0"
+
+services:
+  py-cuda:
+    image: docker.io/pytorch/pytorch:2.4.1-cuda12.1-cudnn8-runtime
+    expose:
+      - port: 8888
+        as: 8888
+        to:
+          - global: true
+    env:
+      - JUPYTER_TOKEN=sentient
+
+profiles:
+  name: py-cuda
+  mode: provider
+  duration: 2h
+  tier:
+    - community
+  compute:
+    py-cuda:
+      resources:
+        cpu:
+          units: 8
+        memory:
+          size: 16Gi
+        storage:
+          - size: 200Gi
+        gpu:
+          units: 1
+          attributes:
+            vendor:
+              nvidia:
+                - model: h100
+  placement:
+    westcoast:
+      attributes:
+        region: us-west
+      pricing:
+        py-cuda:
+          token: CST
+          amount: 10
+
+deployment:
+  py-cuda:
+    westcoast:
+      profile: py-cuda
+      count: 1
+```
+""",
+    },
 ]
 
 prompt = ChatPromptTemplate.from_messages(
     [("user", "{user_input}"), ("ai", "{output}")],
 )
 
-few_shot_prompt = FewShotChatMessagePromptTemplate(example_prompt=prompt, examples=examples)
+few_shot_prompt = FewShotChatMessagePromptTemplate(
+    example_prompt=prompt, examples=examples
+)
 
 final_prompt = ChatPromptTemplate.from_messages(
     [
-        ("system", "You are a chatbot helping users deploy service on spheron. Your task is to generatre config.yml files based on user input"),
+        (
+            "system",
+            "You are a chatbot helping users deploy service on spheron. Your task is to generatre config.yml files based on user input. Make sure the minimum duration must be 5 minutes.",
+        ),
         few_shot_prompt,
-        ("user", "{user_input}")
+        ("user", "{user_input}"),
     ]
 )
