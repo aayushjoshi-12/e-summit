@@ -302,7 +302,7 @@ deployment:
 """,
     },
     {
-        "user_input": "Deploy a Jupyter Notebook service with PyTorch 2.4.1 and CUDA on port 8888, using 8 vCPUs, 16 GB RAM, 200 GB storage, and an H100 GPU in the US West region for 2 hours at 10 USDT per instance.",
+        "user_input": "Deploy a Jupyter Notebook service with PyTorch 2.4.1 and CUDA on port 8888, using 8 vCPUs, 16 GB RAM, 200 GB storage, and an H100 GPU in the US West region for 30 min at 10 USDT per instance.",
         "output": """
 ```yaml
 version: "1.0"
@@ -321,7 +321,7 @@ services:
 profiles:
   name: py-cuda
   mode: provider
-  duration: 2h
+  duration: 30min
   tier:
     - community
   compute:
